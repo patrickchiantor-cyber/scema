@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buon compleanno Giulia! 🎂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#3b1f4a; --pink:#ff6fae; --bubble:#ffc2dd; --lilac:#d9c7ff;
+  --butter:#ffe27a; --mint:#a8ecd2; --sky:#b8e3ff; --paper:#fffaf3;
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito",system-ui,sans-serif;
+  --hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--plum);background:var(--bubble);overflow-x:hidden}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+section{min-height:100svh;display:grid;place-items:center;padding:4rem 1.5rem;position:relative;overflow:hidden;text-align:center}
+
+/* HERO */
+.hero{background:linear-gradient(170deg,var(--bubble),#ffd9ec 60%,var(--butter))}
+.hero .wrap{position:relative;z-index:2;max-width:34rem}
+.sixteen{
+  width:clamp(9rem,40vw,13rem);aspect-ratio:1;margin:0 auto 1.5rem;
+  display:grid;place-items:center;border-radius:58% 42% 55% 45%/50% 55% 45% 50%;
+  background:var(--pink);color:#fff;font:700 clamp(4.5rem,20vw,7rem)/1 var(--display);
+  box-shadow:0 .6rem 0 var(--plum);transform:rotate(-6deg);animation:bob 3.4s ease-in-out infinite
+}
+h1{font:700 clamp(2.6rem,10vw,4.6rem)/1.05 var(--display);color:var(--plum)}
+.hero p{font-size:1.2rem;font-weight:700;margin:1rem 0 1.8rem}
+.btn{
+  font:600 1.15rem var(--display);background:var(--plum);color:#fff;border:0;border-radius:99px;
+  padding:.9rem 1.8rem;cursor:pointer;box-shadow:0 .35rem 0 var(--pink);transition:transform .15s,box-shadow .15s
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(.3rem);box-shadow:0 0 0 var(--pink)}
+.btn:focus-visible,.env:focus-visible{outline:4px solid var(--butter);outline-offset:4px}
+.float{position:absolute;font-size:clamp(2rem,7vw,3.2rem);z-index:1;animation:bob 4s ease-in-out infinite}
+.f1{top:8%;left:8%}.f2{top:14%;right:9%;animation-delay:-1s}.f3{bottom:12%;left:12%;animation-delay:-2s}.f4{bottom:9%;right:10%;animation-delay:-.5s}.f5{top:46%;left:3%;animation-delay:-3s}.f6{top:42%;right:3%;animation-delay:-1.6s}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -14px}}
+
+/* ANCHE SE NON CI SONO */
+.always{background:var(--lilac)}
+.always blockquote{
+  position:relative;z-index:2;max-width:36rem;background:var(--paper);border:4px solid var(--plum);
+  border-radius:2rem;padding:3rem 1.8rem;box-shadow:.7rem .7rem 0 var(--pink)
+}
+.always .heart{font-size:3rem;display:block;margin-bottom:.8rem;animation:beat 1.6s ease-in-out infinite}
+.always h2{font:700 clamp(2rem,8vw,3.4rem)/1.15 var(--display)}
+.always h2 span{display:block;color:var(--pink)}
+@keyframes beat{0%,100%{scale:1}15%{scale:1.2}30%{scale:1}45%{scale:1.15}}
+
+/* LETTERA */
+.letter-sec{background:linear-gradient(180deg,var(--lilac),var(--sky) 55%,var(--mint))}
+.env{
+  position:relative;width:min(20rem,80vw);aspect-ratio:1.4;border:4px solid var(--plum);border-radius:1.2rem;
+  background:var(--butter);cursor:pointer;display:grid;place-items:center;
+  font:600 1.4rem var(--display);color:var(--plum);box-shadow:.5rem .5rem 0 var(--plum);transition:transform .2s;padding:0
+}
+.env::before{
+  content:"";position:absolute;inset:0;border-radius:1rem;
+  background:linear-gradient(to bottom right,transparent 49.5%,var(--plum) 49.5% 50.5%,transparent 50.5%) top left/50% 60% no-repeat,
+             linear-gradient(to bottom left,transparent 49.5%,var(--plum) 49.5% 50.5%,transparent 50.5%) top right/50% 60% no-repeat
+}
+.env:hover{transform:rotate(-2deg) scale(1.03)}
+.env span{position:relative;background:var(--pink);color:#fff;padding:.5rem 1.1rem;border-radius:99px;margin-top:1.6rem}
+.env .seal{position:absolute;top:34%;left:50%;translate:-50% -50%;font-size:2.4rem;margin:0;background:none;padding:0}
+.hint{margin-top:1.5rem;font-weight:700}
+.letter{
+  display:none;max-width:32rem;background:var(--paper);border:4px solid var(--plum);border-radius:1.6rem;
+  padding:2.5rem 1.8rem;box-shadow:.7rem .7rem 0 var(--pink);
+  background-image:repeating-linear-gradient(transparent 0 2.3rem,#f3d9e6 2.3rem 2.4rem)
+}
+.letter.show{display:block;animation:pop .7s cubic-bezier(.2,1.4,.4,1)}
+.letter p{font:700 clamp(1.7rem,6.5vw,2.4rem)/1.5 var(--hand);color:var(--plum)}
+.letter .big{font-size:clamp(2.2rem,9vw,3.2rem);color:var(--pink);margin-bottom:.6rem}
+.letter .hearts{font-size:2rem;margin-top:1rem}
+@keyframes pop{from{opacity:0;transform:translateY(40px) scale(.7) rotate(-4deg)}to{opacity:1;transform:none}}
+footer{background:var(--mint);text-align:center;padding:1.5rem;font-weight:700}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<section class="hero">
+  <span class="float f1" aria-hidden="true">🎈</span><span class="float f2" aria-hidden="true">✨</span>
+  <span class="float f3" aria-hidden="true">🎀</span><span class="float f4" aria-hidden="true">🎈</span>
+  <span class="float f5" aria-hidden="true">🍰</span><span class="float f6" aria-hidden="true">💖</span>
+  <div class="wrap">
+    <div class="sixteen" aria-hidden="true">16</div>
+    <h1>Buon compleanno, Giulia!</h1>
+    <p>Oggi è il tuo giorno speciale 🎉</p>
+    <button class="btn" id="boom">Soffia le candeline 🎂</button>
+  </div>
+</section>
+
+<section class="always">
+  <blockquote>
+    <span class="heart" aria-hidden="true">💗</span>
+    <h2>Anche se non ci sono,<span>ci sono sempre.</span></h2>
+  </blockquote>
+</section>
+
+<section class="letter-sec">
+  <div>
+    <button class="env" id="env" aria-label="Apri la lettera">
+      <span class="seal" aria-hidden="true">💌</span>
+      <span>Apri la lettera</span>
+    </button>
+    <p class="hint" id="hint">Toccala Giulia, è per te 💕</p>
+    <article class="letter" id="letter">
+      <p class="big">Buon compleanno amore mio!</p>
+      <p>Mi fido tanto di te e ti amo tanto.</p>
+      <p class="hearts" aria-hidden="true">💖💖💖</p>
+    </article>
+  </div>
+</section>
+
+<footer>Fatto con tanto amore 💕</footer>
+
+<script>
+const cv=document.getElementById('fx'),cx=cv.getContext('2d');
+let parts=[],raf=null;
+const cols=['#ff6fae','#ffe27a','#a8ecd2','#b8e3ff','#d9c7ff','#ffffff'];
+function size(){cv.width=innerWidth;cv.height=innerHeight}
+addEventListener('resize',size);size();
+function burst(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  for(let i=0;i<140;i++){
+    parts.push({x:innerWidth/2,y:innerHeight*.55,vx:(Math.random()-.5)*16,vy:-Math.random()*16-4,
+      s:Math.random()*8+5,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cols[i%cols.length],h:Math.random()<.3})
+  }
+  if(!raf)raf=requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{
+    p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.r+=p.vr;
+    cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;
+    if(p.h){cx.beginPath();cx.arc(0,0,p.s/2,0,7);cx.fill()}else cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);
+    cx.restore();
+  });
+  parts=parts.filter(p=>p.y<cv.height+20);
+  raf=parts.length?requestAnimationFrame(tick):null;
+  if(!raf)cx.clearRect(0,0,cv.width,cv.height);
+}
+document.getElementById('boom').addEventListener('click',burst);
+document.getElementById('env').addEventListener('click',function(){
+  this.style.display='none';
+  document.getElementById('hint').style.display='none';
+  document.getElementById('letter').classList.add('show');
+  burst();
+});
+</script>
+</body>
+</html>
